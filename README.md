@@ -7,7 +7,6 @@ The game utilizes PixiJS to create an interactive and engaging user experience.
 ## Technical details
 
 The Front-End was developed using TypeScript and PixiJS. Webpack and Babel were used for code compilation and bundling.
-The Back-End was made on NodeJS using ExpressJS and MySQL.
 
 ## Views
 
@@ -15,12 +14,35 @@ The Back-End was made on NodeJS using ExpressJS and MySQL.
 
 <img src="/assets/images/desktop.png" width="80%">
 
-##### Run the app
+### How to run the application?
 
-  You can use your own server, personally used lite-server
+The project was hosted on my server for easy access and evaluation.
 
-  npm install -g lite-server
+link [http://rbeaujon.com/foxium]
 
+however, if you need to install it locally, you can follow the instructions below:
+
+##### Run the app locally
+
+  You have the flexibility to use your own server to host the slot game prototype. For simplicity, I recommend using lite-server as it provides a quick and easy way to serve the app locally.
+
+  To run the app using lite-server, follow these steps:
+
+  1.- Install lite-server globally by executing the following command:
+
+    npm install -g lite-server
+
+  2.- Open a terminal or command prompt and navigate to your project directory.
+
+  3.- Start the server by running the following command:
+
+    lite-server
+
+
+The lite-server will automatically open your default browser and serve the slot game prototype. Any changes you make to your HTML, CSS, or JavaScript files will trigger an automatic page reload.
+
+By default, it runs on port 3000. You can access the app in your browser by visiting http://localhost:3000.
+s
 
 ### npm run + (Node Package Manager Commands)
 
