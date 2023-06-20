@@ -13,7 +13,7 @@ The Back-End was made on NodeJS using ExpressJS and MySQL.
 
 #### Desktop views
 
-<img src="/assets/images/desktop.png" width="40%">
+<img src="/assets/images/desktop.png" width="80%">
 
 ##### Run the app
 
