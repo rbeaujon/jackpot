@@ -42,7 +42,6 @@ however, if you need to install it locally, you can follow the instructions belo
 The lite-server will automatically open your default browser and serve the slot game prototype. Any changes you make to your HTML, CSS, or JavaScript files will trigger an automatic page reload.
 
 By default, it runs on port 3000. You can access the app in your browser by visiting http://localhost:3000.
-s
 
 ### npm run + (Node Package Manager Commands)
 
@@ -57,4 +56,5 @@ Example: npm run start.
 
 ## Out-of-scope
 
+* Loader
 * Responsive design
