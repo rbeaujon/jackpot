@@ -1,9 +1,13 @@
 {
   "compilerOptions": {
-    "target": "ES5", 
-    "module": "commonjs",  
+    "target": "es5",
+    "module": "commonjs",
     "outDir": "./dist",
-    "watch": true,
-    "strict": false
-},
+    "strict": true,
+    "esModuleInterop": true
+  },
+  "include": [
+    "./*.ts",
+    "src/**/*.ts"
+  ]
 }

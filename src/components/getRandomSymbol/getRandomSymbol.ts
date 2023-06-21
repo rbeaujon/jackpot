@@ -1,3 +1,5 @@
+import * as PIXI from 'pixi.js';
+
 const getRandomSymbol = ():PIXI.Sprite => {
   // Array to store the names of the symbols/images
   const symbols:Array<string> = ['H1', 'H2', 'H3', 'H4', 'L1', 'L2', 'L3', 'L4', 'WILD'];

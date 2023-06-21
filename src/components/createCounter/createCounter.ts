@@ -1,3 +1,5 @@
+import * as PIXI from 'pixi.js';
+
 const createCounter = (app: PIXI.Application): [PIXI.Sprite, PIXI.Text] => {
   const counter = PIXI.Sprite.from('./src/graphics/gameplay/counter.png');
   counter.width = app.screen.width * 0.15;

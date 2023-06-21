@@ -1,3 +1,5 @@
+import * as PIXI from 'pixi.js';
+
 const getSymbol = (image:string, position:number):PIXI.Sprite => {
   const symbolPath:string = `./src/graphics/gameplay/symbols/${image}.png`;
   const symbol:PIXI.Sprite = PIXI.Sprite.from(symbolPath);
