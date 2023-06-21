@@ -67,4 +67,4 @@ Example: npm run build.
 
 ## Out-of-scope
 
-* Responsive design
+* Responsive design for tables and portrait views.
