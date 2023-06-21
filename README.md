@@ -14,6 +14,18 @@ The Front-End was developed using TypeScript and PixiJS. Webpack and Babel were 
 
 <img src="/assets/images/desktop.png" width="80%">
 
+#### Mobiles views
+
+
+### 768 (high resolution)
+
+<img src="/assets/images/768.png" width="80%">
+
+
+### 320 (low resolution)
+
+<img src="/assets/images/320.png" width="80%">
+
 ### How to run the application?
 
 The project was hosted on my server for easy access and evaluation.
