@@ -1,3 +1,5 @@
+import * as PIXI from 'pixi.js';
+
 const createButtonSpin = (app: PIXI.Application): PIXI.Sprite => {
   const buttonSpin = PIXI.Sprite.from('./src/graphics/gameplay/button_spin.png');
   buttonSpin.width = app.screen.width * 0.1;

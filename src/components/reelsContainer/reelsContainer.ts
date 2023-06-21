@@ -1,3 +1,5 @@
+import * as PIXI from 'pixi.js';
+
 const createReelsContainer = (app: PIXI.Application): PIXI.Container => {
   const reelsContainer:PIXI.Container = new PIXI.Container();
   reelsContainer.position.set(app.screen.width / 2, app.screen.height / 2);

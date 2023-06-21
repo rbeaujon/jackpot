@@ -1,3 +1,5 @@
+import * as PIXI from 'pixi.js';
+
 import createBackground  from "./src/components/createBackground/createBackground";
 import createButtonSpin from "./src/components/createButtonSpin/createButtonSpin";
 import createCounter from "./src/components/createCounter/createCounter";
@@ -5,6 +7,7 @@ import getRandomSymbol from "./src/components/getRandomSymbol/getRandomSymbol";
 import getSymbol from "./src/components/getSymbol/getSymbol";
 import createReels from "./src/components/createReels/createReels";
 import createReelsContainer from "./src/components/reelsContainer/reelsContainer";
+import createLoader from "./src/helpers/Loader/loader";
 
 interface MachineState {
   reels: string[][];
@@ -15,9 +18,14 @@ interface MachineStatesResponse {
   'machine-state': MachineState[];
 }
 
+//Initials controls
 let machineStates: MachineState[];
 let currentMachineStateIndex = 0;
 let win = 0
+
+// Show loader
+const loader = createLoader();
+document.body.appendChild(loader);
 
 //Get results from JSON file
 fetch('./src/data/results.json')
@@ -25,12 +33,15 @@ fetch('./src/data/results.json')
 .then(data => {
   machineStates = data['machine-state'];
 
+  // Remove loader
+  document.body.removeChild(loader);
+
   const app: PIXI.Application = new PIXI.Application({
     width: window.innerWidth,
     height: window.innerHeight,
     backgroundColor: 0x000000,
   });
-  document.body.appendChild(app.view);
+  document.body.appendChild(app.view as unknown as Node);
 
   const targetWidth: number = app.screen.width * 0.6;
   const targetHeight: number = app.screen.height * 0.85;
@@ -85,7 +96,7 @@ fetch('./src/data/results.json')
     
       for (let j = 0; j < 3; j++) { 
         const containerName: PIXI.Container = reelContainers[j];
-        const symbols: PIXI.DisplayObject[] = containerName.children as PIXI.DisplayObject[];
+        const symbols: PIXI.Sprite[] = containerName.children as PIXI.Sprite[];
         
 
         // Generate new symbols 
@@ -160,7 +171,6 @@ fetch('./src/data/results.json')
 
   // Event listener for button click
   buttonSpin.interactive = true;
-  buttonSpin.buttonMode = true;
   buttonSpin.on('pointerdown', () => {
     if (!isAnimating) {
       buttonSpin.interactive = false;

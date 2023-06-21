@@ -1,4 +1,4 @@
-import { createApplication } from './application';
+// import { createApplication } from './application';
 
-const app = createApplication();
-app.start();
+// const app = createApplication();
+// app.start();
