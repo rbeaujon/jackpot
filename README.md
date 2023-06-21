@@ -48,13 +48,11 @@ By default, it runs on port 3000. You can access the app in your browser by visi
 Runs in your command line and inside the project folder the following commands to:
 
 test:  To run the testing mode, using react-scripts: 5.0.1 and jest-dom 5.16.5
-build: This sets and creates a build directory with a production build of your app
-dev: To bundle the code using Webpack
-Example: npm run start.
+build: To bundle the code using Webpack in production mode
+dev: To bundle the code using Webpack in development mode with watch option active by default
 
-
+Example: npm run build.
 
 ## Out-of-scope
 
-* Loader
 * Responsive design
