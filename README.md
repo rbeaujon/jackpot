@@ -19,12 +19,12 @@ The Front-End was developed using TypeScript and PixiJS. Webpack and Babel were 
 
 ### 768 (high resolution)
 
-<img src="/assets/images/768.png" width="80%">
+<img src="/assets/images/768.png" width="40%">
 
 
 ### 320 (low resolution)
 
-<img src="/assets/images/320.png" width="80%">
+<img src="/assets/images/320.png" width="40%">
 
 ### How to run the application?
 
