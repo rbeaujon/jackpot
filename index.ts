@@ -45,6 +45,7 @@ fetch('./src/data/results.json')
 
   const targetWidth: number = app.screen.width * 0.6;
   const targetHeight: number = app.screen.height * 0.85;
+  const isMobile = window.innerWidth <= 768; //Check the mobiles width
 
   //Background image
   createBackground(app)
@@ -68,10 +69,14 @@ fetch('./src/data/results.json')
     container.x = (i - 1) * targetWidth / 3;
     container.y = container.height / 2; // Center the reelContainer vertically
     
+    container.x = isMobile ? container.x * 1.7 : container.x;
+    container.y = isMobile ? container.y * 1.2 : container.y;
+
     // Add three symbols/images to each reel
     for (let j = 0; j < 3; j++) {
       const symbol = getRandomSymbol();
       symbol.y = (j - 1) * symbol.height; // Adjust symbol position within reelContainer
+      symbol.y = isMobile ? symbol.y * 1.25 : symbol.y;
       container.addChild(symbol);
     }
 
