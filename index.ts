@@ -9,6 +9,10 @@ import createReels from "./src/components/createReels/createReels";
 import createReelsContainer from "./src/components/reelsContainer/reelsContainer";
 import createLoader from "./src/helpers/Loader/loader";
 
+import audioWin from './src/components/audio/audioWin';
+import audioJackspot from './src/components/audio/audioJackSpot';
+
+
 interface MachineState {
   reels: string[][];
   win: number;
@@ -94,6 +98,12 @@ fetch('./src/data/results.json')
 
   //Game animations
   function animateImages() {
+
+  //reproduction jackspot audio
+  audioJackspot.play()
+  setTimeout(() => {
+  audioJackspot.stop();
+  }, animationDuration - 1000); 
     
     buttonSpin.interactive = false;
     
@@ -134,12 +144,15 @@ fetch('./src/data/results.json')
           containerName.removeChild(symbols[1]);
           containerName.removeChild(symbols[0]);
             
+
           //Select the correct reel from dataJSON
           const reels: Array<Array<string>> = machineStates[currentMachineStateIndex - 1].reels;
 
           
           //Add the value the user earned
           if(j===0 && counter.children.length >= 1){
+
+
             for (let i = counter.children.length - 1; i >= 0; i--) {
               counter.removeChild(counter.children[counter.children.length - 1]); 
             }
@@ -152,6 +165,14 @@ fetch('./src/data/results.json')
             counterValue.style.fontSize = 80;
             counterValue.style.fill = "white";
             counter.addChild(counterValue);
+
+            if(win !==0 && counter.children.length === 1 ){//reproduce the win audio
+              audioWin.play()
+                setTimeout(() => {
+                audioWin.stop();
+              }, 1500); 
+            }
+     
           }
 
           //Add symbols according to the current machine state
