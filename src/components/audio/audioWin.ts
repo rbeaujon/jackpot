@@ -5,7 +5,7 @@ const audioFile = './src/components/audio/win.mp3';
 const audioWin = new Howl({
   src: [audioFile],
   loop: true,
-  volume: 0.5,
+  volume: 0.2,
 });
 
 export default audioWin;
