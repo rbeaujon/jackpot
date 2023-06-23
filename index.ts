@@ -25,7 +25,6 @@ interface MachineStatesResponse {
 //Initials controls
 let machineStates: MachineState[];
 let currentMachineStateIndex = 0;
-let win = 0
 
 // Show loader
 const loader = createLoader();
@@ -98,17 +97,18 @@ fetch('./src/data/results.json')
 
   //Game animations
   function animateImages() {
-
+  
+  let controlWin: boolean = true
+  
   //reproduction jackspot audio
   audioJackspot.play()
-  setTimeout(() => {
-  audioJackspot.stop();
-  }, animationDuration - 1000); 
+
     
     buttonSpin.interactive = false;
     
     app.ticker.add(() => {
     
+      
       for (let j = 0; j < 3; j++) { 
         const containerName: PIXI.Container = reelContainers[j];
         const symbols: PIXI.Sprite[] = containerName.children as PIXI.Sprite[];
@@ -135,6 +135,9 @@ fetch('./src/data/results.json')
         //Verification if the timer is over
         if ((animationProgress * 10)/currentMachineStateIndex / animationDuration >= 1) {
           
+          //stop slot audio animation
+          audioJackspot.stop();
+
           app.ticker.stop();
           buttonSpin.interactive = true;
           isAnimating = false;
@@ -156,23 +159,42 @@ fetch('./src/data/results.json')
             for (let i = counter.children.length - 1; i >= 0; i--) {
               counter.removeChild(counter.children[counter.children.length - 1]); 
             }
-          
-            //check how much earned and sum total 
-            win += machineStates[currentMachineStateIndex -1].win
-            counterValue = new PIXI.Text(win.toString());
-            counterValue.anchor.set(0.5);
-            counterValue.style.fontFamily = "Arial";
-            counterValue.style.fontSize = 80;
-            counterValue.style.fill = "white";
-            counter.addChild(counterValue);
+            
+             //check how much earned and sum total 
+            let win: number = 0;
+            let currentValue: number = 0;
+            let isWin: boolean = false;
+            let counterValueDisplay: PIXI.Text;
+            
+            //display the counter with 0 points
+            counterValueDisplay = new PIXI.Text(currentValue.toString(), {
+              fontFamily: "Arial",
+              fontSize: 80,
+              fill: "white",
+            });
+            counterValueDisplay.anchor.set(0.5);
+            counter.addChild(counterValueDisplay);
 
-            if(win !==0 && counter.children.length === 1 ){//reproduce the win audio
-              audioWin.play()
-                setTimeout(() => {
-                audioWin.stop();
-              }, 1500); 
+           //Total earned and sum total
+            if(controlWin) {    
+                 
+              for (let m = 0; m <= currentMachineStateIndex -1; m++) {
+                win += machineStates[m].win          
+              }
+              counterValueDisplay.text = win.toString()
+        
+              isWin = machineStates[currentMachineStateIndex -1].win > 0 ? true : false;
+              controlWin = false
             }
-     
+      
+            //Reproduce the sound when user win
+            if (isWin) {
+              audioWin.play();
+              setTimeout(() => {
+                audioWin.stop();
+              }, 1500);
+            }
+
           }
 
           //Add symbols according to the current machine state
