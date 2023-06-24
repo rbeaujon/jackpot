@@ -182,20 +182,46 @@ fetch('./src/data/results.json')
                 win += machineStates[m].win          
               }
               counterValueDisplay.text = win.toString()
-        
+             
+              if(currentMachineStateIndex -1 > 1) {
+                currentValue += win - machineStates[currentMachineStateIndex -1].win
+              } else {
+                machineStates[currentMachineStateIndex -1].win
+              }
               isWin = machineStates[currentMachineStateIndex -1].win > 0 ? true : false;
               controlWin = false
             }
       
-            //Reproduce the sound when user win
+            //Reproduce the sound when user win and update the counter gradually
             if (isWin) {
-              audioWin.play();
-              setTimeout(() => {
-                audioWin.stop();
-              }, 1500);
-            }
+            audioWin.play();
+        
+            //show gradually the counter
+            const updateCounterValue = () => {
+               if (win >= currentValue) {
+                          
+                 counterValueDisplay.text = currentValue.toString();
+                  currentValue += 1;
+                  app.renderer.render(app.stage);
 
+                  machineStates[currentMachineStateIndex -1].win > 250 
+                  ? setTimeout(updateCounterValue, 1) 
+                  : setTimeout(updateCounterValue, 10) 
+                  
+                  // requestAnimationFrame(updateCounterValue);         
+              } else if (win <= currentValue){
+                audioWin.stop();
+              }
+        
+             
+            };
+        
+            updateCounterValue();
+           
           }
+        
+          }
+        
 
           //Add symbols according to the current machine state
           for (let l = 0; l < 3; l++) {
