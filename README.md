@@ -1,7 +1,7 @@
 # Jackspot
 
 This repository serves as a prototype for a slot game (jackpot machine) with a loading screen feature.
-The design of the game incorporates images provided by Foxium company as part of an assigned assessment.
+The design of the game incorporates public images and re-edits on my own to be adapted for the game requirements.
 The game utilizes PixiJS to create an interactive and engaging user experience.
 
 ## Technical details
@@ -12,19 +12,18 @@ The Front-End was developed using TypeScript and PixiJS. Webpack and Babel were 
 
 #### Desktop views
 
-<img src="/assets/images/desktop.png" width="80%">
+<img src="/assets/images/western/desktop.png" width="80%">
+
+#### Laptop views
+
+<img src="/assets/images/western/laptop.gif" width="80%">
 
 #### Mobiles views
 
-
 ### 768 (high resolution)
 
-<img src="/assets/images/768.png" width="40%">
+<img src="/assets/images/western/768.gif" width="40%">
 
-
-### 320 (low resolution)
-
-<img src="/assets/images/320.png" width="40%">
 
 ### How to run the application?
 
