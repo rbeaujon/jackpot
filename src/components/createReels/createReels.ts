@@ -4,7 +4,7 @@ const createReels = (reelsContainer: PIXI.Container, targetWidth: number, target
   const isMobile768 = window.innerWidth <= 768; //Check the mobiles width 768
   const isMobile320 = window.innerWidth <= 320; //Check the mobiles width 320
 
-  const reelsImage = PIXI.Sprite.from('./src/graphics/gameplay/reels.png');
+  const reelsImage = PIXI.Sprite.from('./src/graphics/gameplay/reels2.png');
   reelsImage.width = (isMobile320 || isMobile768)  
     ? targetWidth * 1.70 
     : targetWidth;
