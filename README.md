@@ -29,7 +29,7 @@ The Front-End was developed using TypeScript and PixiJS. Webpack and Babel were 
 
 The project was hosted on my server for easy access and evaluation.
 
-link [http://rbeaujon.com/foxium]
+link [http://rbeaujon.com/jackpot]
 
 however, if you need to install it locally, you can follow the instructions below:
 
