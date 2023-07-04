@@ -1,4 +1,4 @@
-# Jackspot
+# Jackpot
 
 This repository serves as a prototype for a slot game (jackpot machine) with a loading screen feature.
 The design of the game incorporates public images and re-edits on my own to be adapted for the game requirements.
