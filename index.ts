@@ -48,7 +48,8 @@ fetch('./src/data/results.json')
 
   const targetWidth: number = app.screen.width * 0.6;
   const targetHeight: number = app.screen.height * 0.85;
-  const isMobile = window.innerWidth <= 768; //Check the mobiles width
+  const isMobile768 = window.innerWidth <= 768; //Check the mobiles width 768
+  const isMobile320 = window.innerWidth <= 320; //Check the mobiles width 320
 
   //Background image
   createBackground(app)
@@ -72,14 +73,14 @@ fetch('./src/data/results.json')
     container.x = (i - 1) * targetWidth / 3;
     container.y = container.height / 2; // Center the reelContainer vertically
     
-    container.x = isMobile ? container.x * 1.7 : container.x;
-    container.y = isMobile ? container.y * 1.2 : container.y;
+    container.x = isMobile320 ? container.x * 1.7 : isMobile768 ? container.x * 1.6 : container.x;
+    container.y = isMobile320 ? container.y * 1.6 :  isMobile768 ? container.y * 1.4 : container.y;
 
     // Add three symbols/images to each reel
     for (let j = 0; j < 3; j++) {
       const symbol = getRandomSymbol();
       symbol.y = (j - 1) * symbol.height; // Adjust symbol position within reelContainer
-      symbol.y = isMobile ? symbol.y * 1.25 : symbol.y;
+      symbol.y = isMobile320 ? symbol.y * 1.1 : isMobile768 ? symbol.y * 1.4 : symbol.y;
       container.addChild(symbol);
     }
 
@@ -117,6 +118,7 @@ fetch('./src/data/results.json')
         // Generate new symbols 
         const topSymbol:PIXI.Sprite = getRandomSymbol();
         topSymbol.y = -symbols[0].height;
+        topSymbol.y = isMobile320 ? topSymbol.y * 1.1 : isMobile768 ? topSymbol.y * 1.4 : topSymbol.y;
         containerName.addChild(topSymbol);
 
         const midSymbol:PIXI.Sprite= getRandomSymbol();
@@ -125,6 +127,8 @@ fetch('./src/data/results.json')
 
         const bottomSymbol:PIXI.Sprite = getRandomSymbol();
         bottomSymbol.y = symbols[0].height;
+        bottomSymbol.x = isMobile768 ? bottomSymbol.x * 1.6 : bottomSymbol.x;
+        bottomSymbol.y = isMobile320 ? bottomSymbol.y * 1.1 : isMobile768 ? bottomSymbol.y * 1.4 : bottomSymbol.y;
         containerName.addChild(bottomSymbol); 
 
         //remove the old symbols
@@ -226,6 +230,8 @@ fetch('./src/data/results.json')
           //Add symbols according to the current machine state
           for (let l = 0; l < 3; l++) {
             const symbol:PIXI.Sprite = getSymbol(reels[j][l], l)
+            symbol.x = isMobile768 ? symbol.x * 1.6 : symbol.x;
+            symbol.y = isMobile320 ? symbol.y * 1.1 : isMobile768 ? symbol.y * 1.4 : symbol.y;
             containerName.addChild(symbol);
           }
 

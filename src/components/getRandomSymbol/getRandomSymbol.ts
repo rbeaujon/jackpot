@@ -1,6 +1,7 @@
 import * as PIXI from 'pixi.js';
 
 const getRandomSymbol = ():PIXI.Sprite => {
+  const is1366 = window.innerWidth <= 1366; //Check the laptop width 1366
   const isMobile768 = window.innerWidth <= 768; //Check the mobiles width 768
   const isMobile320 = window.innerWidth <= 320; //Check the mobiles width 320
 
@@ -9,11 +10,11 @@ const getRandomSymbol = ():PIXI.Sprite => {
 
   const randomIndex:number = Math.floor(Math.random() * symbols.length);
   const randomSymbol:string = symbols[randomIndex];
-  const imagePath:string = `./src/graphics/gameplay/symbols/${randomSymbol}.png`;
+  const imagePath:string = `./src/graphics/gameplay/symbols/western/${randomSymbol}.png`;
   const symbol:PIXI.Sprite = PIXI.Sprite.from(imagePath);
 
-  symbol.width = isMobile320 ? 90 : isMobile768 ? 110 : 180;
-  symbol.height = isMobile320 ? 90 : isMobile768 ? 110 : 180;
+  symbol.width = isMobile320 ? 80 : isMobile768 ? 100 : is1366 ? 120 : 180;
+  symbol.height = isMobile320 ? 80 : isMobile768 ? 100 : is1366 ? 120 : 180;
   symbol.anchor.set(0.5);
 
 
